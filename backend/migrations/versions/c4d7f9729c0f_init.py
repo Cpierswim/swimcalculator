@@ -27,15 +27,6 @@ def upgrade():
     sa.Column('password', sa.String(length=255), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('car',
-    sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('make', sa.String(length=255), nullable=False),
-    sa.Column('model', sa.String(length=255), nullable=False),
-    sa.Column('year', sa.Integer(), nullable=True),
-    sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.ForeignKeyConstraint(['user_id'], ['user.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
     # ### end Alembic commands ###
 
 

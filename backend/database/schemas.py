@@ -1,6 +1,6 @@
 from flask_marshmallow import Marshmallow
 from marshmallow import post_load, fields
-from database.models import User, Car
+from database.models import *
 
 ma = Marshmallow()
 
@@ -38,24 +38,9 @@ register_schema = RegisterSchema()
 user_schema = UserSchema()
 users_schema = UserSchema(many=True)
 
-
-# Car Schemas
-class CarSchema(ma.Schema):
+class PracticeSchema(ma.Schema):
     id = fields.Integer(primary_key=True)
-    make = fields.String(required=True)
-    model = fields.String(required=True)
-    year = fields.Integer()
-    user_id = fields.Integer()
-    user = ma.Nested(UserSchema, many=False)
-    class Meta:
-        fields = ("id", "make", "model", "year", "user_id", "user")
-    
-    @post_load
-    def create_car(self, data, **kwargs):
-        return Car(**data)
+    date = fields.Date(required=True)
+    json = fields.String(required=False)
 
-car_schema = CarSchema()
-cars_schema = CarSchema(many=True)
-
-
-# TODO: Add your schemas below
+practice_schema = PracticeSchema()
