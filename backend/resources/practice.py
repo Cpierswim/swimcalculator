@@ -12,15 +12,13 @@ from os import environ
 
 load_dotenv()
 
-class PracticeResource(Resource):
+class PracticesResource(Resource):
     def post():
         pass
 
+    def get(self):
+        pass
+
+class PracticeResource(Resource):
     def get(self, practice_id):
-        pass
-
-    def delete(self, practice_id):
-        pass
-
-    def put(self, practice_id):
         pass

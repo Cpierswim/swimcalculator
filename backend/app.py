@@ -7,7 +7,8 @@ from flask_migrate import Migrate
 from database.models import db
 from database.schemas import ma
 from resources.auth import LoginResource, RegisterResource
-from resources.practice import PracticeResource
+from resources.practice import PracticeResource, PracticesResource
+from resources.time import TimeResource
 from dotenv import load_dotenv
 from os import environ
 
@@ -53,6 +54,8 @@ def create_routes():
     api = Api()
     api.add_resource(RegisterResource, '/api/auth/register')
     api.add_resource(LoginResource, '/api/auth/login')
-    api.add_resource(PracticeResource, '/api/practice')
+    api.add_resource(PracticesResource, '/api/practice')
+    api.add_resource(PracticeResource, "/api/practice/<int:parent_id>")
+    api.add_resource(TimeResource, "/api/time")
     
     return api

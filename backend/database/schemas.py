@@ -32,7 +32,7 @@ class UserSchema(ma.Schema):
     last_name = fields.String(required=True)
     email = fields.String(required=True)
     class Meta:
-        fields = ("id", "username", "first_name", "last_name", "email",)
+        fields = ("id", "username", "first_name", "last_name", "email")
 
 register_schema = RegisterSchema()
 user_schema = UserSchema()
@@ -42,5 +42,8 @@ class PracticeSchema(ma.Schema):
     id = fields.Integer(primary_key=True)
     date = fields.Date(required=True)
     json = fields.String(required=False)
+    class Meta:
+        fields = ("id", "date", "json")
 
 practice_schema = PracticeSchema()
+pratices_schema = PracticeSchema(many=True)
