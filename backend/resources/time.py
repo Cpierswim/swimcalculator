@@ -10,21 +10,16 @@ import json
 from dotenv import load_dotenv
 from os import environ
 from datetime import datetime
+import time
 
 load_dotenv()
 
 class TimeResource(Resource):
     def get(self):
-        now = datetime.now()
+        date= datetime.utcnow()
+        date = date - datetime(1970, 1, 1)
+        milliseconds = round(date.total_seconds()*1000)
         now_dict = {
-                'year': now.year,
-                'month': now.month, 
-                'day': now.day,
-                'hour': now.hour, 
-                'minute': now.minute,
-                'second': now.second, 
-                'microseconds': now.microsecond,
-                'milliseconds': int(now.microsecond / 1000)
+                'milliseconds': milliseconds
             }
-        now_json = json.dumps(now_dict)
         return now_dict, 200
