@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML 5 Boilerplate</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Noto Sans Mono"
+      rel="stylesheet"
+    />
+    <style>
+      #Main_Clock {
+        color: greenyellow;
+        font-size: 25.5vw;
+        font-weight: 600;
+        font-family: "Noto Sans Mono", "Courier New", Courier, monospace;
+      }
+
+      #container {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .black_background {
+        background-color: black;
+      }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <button type="button" onclick="startFullScreen()" id="fullscreenbutton">
+        Cick Me
+      </button>
+    </div>
+
+    <script src="testjs.js"></script>
+  </body>
+</html>

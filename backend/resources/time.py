@@ -23,7 +23,8 @@ class TimeResource(Resource):
                 'hour': now.hour, 
                 'minute': now.minute,
                 'second': now.second, 
-                'microsecond': now.microsecond
+                'microseconds': now.microsecond,
+                'milliseconds': int(now.microsecond / 1000)
             }
         now_json = json.dumps(now_dict)
         return now_dict, 200
